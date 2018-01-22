@@ -1,0 +1,44 @@
+{
+	"country": "de",
+	"url_stream": "http://br-br3-live.cast.addradio.de/br/br3/live/mp3/128/stream.mp3"
+},
+{
+	"country": "de",
+	"url_stream": "http://br-b5aktuell-live.cast.addradio.de/br/b5aktuell/live/mp3/128/stream.mp3"
+},
+{
+	"country": "de",
+	"url_stream": "http://br-br2-sued.cast.addradio.de/br/br2/sued/mp3/128/stream.mp3"
+},
+{
+	"country": "bf",
+	"url_stream": "http://nostalgie90.ice.infomaniak.ch:80/nostalgie90-128.mp3"
+},
+{
+	"country": "uk",
+	"url_stream": "http://media-ice.musicradio.com:80/LBCLondon"
+},
+{
+	"country": "uk",
+	"url_stream": "http://media-ice.musicradio.com:80/GoldMP3"
+},
+{
+	"country": "uk",
+	"url_stream": "http://media-sov.musicradio.com:80/HeartWestMidsMP3"
+},
+{
+	"country": "uk",
+	"url_stream": "http://live.audiospace.co:80/radioyorkshire"
+},
+{
+	"country": "de",
+	"url_stream": "http://mp3channels.webradio.antenne.de:80/antenne"
+},
+{
+	"country": "fr",
+	"url_stream": "http://direct.franceculture.fr/live/franceculture-midfi.mp3?ID=f9fbk29m84"
+},
+{
+	"country": "fr",
+	"url_stream": "http://cdn.nrjaudio.fm/audio1/fr/30201/mp3_128.mp3?origine=listenlive"
+}
