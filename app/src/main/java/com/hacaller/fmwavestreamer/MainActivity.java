@@ -12,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity
 
     ImageView btnStart;
     ImageView btnStop;
+    TextView titleTextView;
 
     RecyclerView recyclerView;
     RadioStreamListViewAdapter adapter;
@@ -44,7 +46,11 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         btnStart = findViewById(R.id.icPlay);
+        btnStart.setOnClickListener(this);
         btnStop = findViewById(R.id.icStop);
+        btnStop.setOnClickListener(this);
+
+        titleTextView = findViewById(R.id.titleTextView);
 
         recyclerView = (RecyclerView) findViewById(R.id.waveList);
         repo = new RadioStreamRepo(this);
@@ -74,6 +80,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onStreamClick(RadioStream radioStream) {
+        Log.d(this.getClass().getName(), radioStream.getUrlStream());
         loadRadioStream(radioStream.getUrlStream());
     }
 
@@ -116,8 +123,9 @@ public class MainActivity extends AppCompatActivity
         @Override
         protected void onPostExecute(IcyStreamMeta result) {
             try {
-                Log.d("mediaplayer",
-                        String.format("%s - %s", streamMeta.getArtist(), streamMeta.getTitle()));
+                String title = String.format("%s - %s", streamMeta.getArtist(), streamMeta.getTitle());
+                titleTextView.setText(title);
+                Log.d(this.getClass().getName(), title);
             } catch (IOException e) {
                 // TODO: Handle
                 Log.e(MetadataTask.class.toString(), e.getMessage());

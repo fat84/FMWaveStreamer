@@ -1,4 +1,4 @@
-{
+[{
 	"country": "de",
 	"url_stream": "http://br-br3-live.cast.addradio.de/br/br3/live/mp3/128/stream.mp3",
 	"radio": "BR3"
@@ -52,4 +52,4 @@
 	"country": "fr",
 	"url_stream": "http://cdn.nrjaudio.fm/audio1/fr/30201/mp3_128.mp3?origine=listenlive",
 	"radio": "Cherie"
-}
+}]

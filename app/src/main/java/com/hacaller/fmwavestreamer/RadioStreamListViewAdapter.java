@@ -24,12 +24,6 @@ public class RadioStreamListViewAdapter extends RecyclerView.Adapter<RadioStream
         this.streams.addAll(streams);
     }
 
-    public void setStreams(List<RadioStream> streams) {
-        this.streams.clear();
-        this.streams.addAll(streams);
-        notifyDataSetChanged();
-    }
-
 
     @Override
     public RadioStreamListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

@@ -39,7 +39,11 @@ public class IcyStreamMeta {
             return "";
 
         String streamTitle = data.get("StreamTitle");
-        String title = streamTitle.substring(0, streamTitle.indexOf("-"));
+        String title = streamTitle;
+        if (streamTitle.indexOf("-") > 0){
+            title = streamTitle.substring(0, streamTitle.indexOf("-"));
+        }
+
         return title.trim();
     }
 
@@ -56,7 +60,10 @@ public class IcyStreamMeta {
             return "";
 
         String streamTitle = data.get("StreamTitle");
-        String artist = streamTitle.substring(streamTitle.indexOf("-")+1);
+        String artist = "";
+        if (streamTitle.indexOf("-") > 0){
+            artist = streamTitle.substring(streamTitle.indexOf("-")+1);
+        }
         return artist.trim();
     }
 

@@ -33,8 +33,8 @@ public class RadioStreamRepo {
                 builder.append(line);
                 line = reader.readLine();
             }
-            RadioStream[] biographies = new Gson().fromJson(builder.toString(), RadioStream[].class);
-            return Arrays.asList(biographies);
+            RadioStream[] streams = new Gson().fromJson(builder.toString(), RadioStream[].class);
+            return Arrays.asList(streams);
         } catch (IOException e) {
             e.printStackTrace();
             return null;
