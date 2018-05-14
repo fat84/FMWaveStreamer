@@ -20,6 +20,8 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
+import java.net.URLEncoder;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -39,6 +41,7 @@ public class MainActivity extends AppCompatActivity
     RadioStreamRepo repo;
 
     MediaPlayer mediaPlayer;
+    String currentStream;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,11 +53,13 @@ public class MainActivity extends AppCompatActivity
         btnStop = findViewById(R.id.icStop);
         btnStop.setOnClickListener(this);
 
+        mediaPlayer = new MediaPlayer();
+
         titleTextView = findViewById(R.id.titleTextView);
 
         recyclerView = (RecyclerView) findViewById(R.id.waveList);
         repo = new RadioStreamRepo(this);
-        adapter = new RadioStreamListViewAdapter(repo.getStreamList(), this);
+        adapter = new RadioStreamListViewAdapter(repo.getStreamList(RadioStreamRepo.GERMAN), this);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this,
                 LinearLayoutManager.VERTICAL, false);
@@ -66,13 +71,18 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onClick(View view) {
         if (view.equals(btnStart)){
-            if (mediaPlayer != null && !mediaPlayer.isPlaying()){
-                mediaPlayer.start();
+            if (mediaPlayer != null && currentStream != null){
+                loadRadioStream(currentStream);
             }
+            btnStop.setSelected(false);
+            btnStart.setSelected(true);
         } else if (view.equals(btnStop)){
             if (mediaPlayer != null && mediaPlayer.isPlaying()){
                 mediaPlayer.stop();
+                mediaPlayer.release();
             }
+            btnStop.setSelected(true);
+            btnStart.setSelected(false);
         }
     }
 
@@ -80,20 +90,30 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onStreamClick(RadioStream radioStream) {
-        Log.d(this.getClass().getName(), radioStream.getUrlStream());
-        loadRadioStream(radioStream.getUrlStream());
+        btnStop.setSelected(true);
+        btnStart.setSelected(false);
+        if (mediaPlayer != null && mediaPlayer.isPlaying()){
+            mediaPlayer.stop();
+            mediaPlayer.release();
+        }
+        currentStream = radioStream.getUrlStream();
+        Log.d(this.getClass().getName(), currentStream);
+        loadRadioStream(currentStream);
+        btnStop.setSelected(false);
+        btnStart.setSelected(true);
     }
 
     private void loadRadioStream(String url){
+        mediaPlayer = new MediaPlayer();
         MetadataTask metadataTask = new MetadataTask();
         try {
             metadataTask.execute(new URL(url));
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-        mediaPlayer = new MediaPlayer();
         mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
         try {
+            mediaPlayer.reset();
             mediaPlayer.setDataSource(url);
             mediaPlayer.prepare(); // might take long! (for buffering, etc)
             mediaPlayer.start();
@@ -124,7 +144,7 @@ public class MainActivity extends AppCompatActivity
         protected void onPostExecute(IcyStreamMeta result) {
             try {
                 String title = String.format("%s - %s", streamMeta.getArtist(), streamMeta.getTitle());
-                titleTextView.setText(title);
+                titleTextView.setText(new String(title.getBytes("cp1252"),"utf-8"));
                 Log.d(this.getClass().getName(), title);
             } catch (IOException e) {
                 // TODO: Handle

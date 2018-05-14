@@ -1,0 +1,37 @@
+[
+	{
+		"country": "de",
+		"url_stream": "http://br-br3-live.cast.addradio.de/br/br3/live/mp3/128/stream.mp3",
+		"radio": "BR3"
+	},
+	{
+		"country": "de",
+		"url_stream": "http://br-b5aktuell-live.cast.addradio.de/br/b5aktuell/live/mp3/128/stream.mp3",
+		"radio": "BR5"
+	},
+	{
+		"country": "de",
+		"url_stream": "http://br-br2-sued.cast.addradio.de/br/br2/sued/mp3/128/stream.mp3",
+		"radio": "BR2"
+	},
+	{
+		"country": "de",
+		"url_stream": "http://mp3channels.webradio.antenne.de:80/antenne",
+		"radio": "Antenne"
+	},
+	{
+		"country": "de",
+		"url_stream": "http://addrad.io/4WRDBw",
+		"radio": "Deutschlandradio Kultur"
+	},
+	{
+		"country": "de",
+		"url_stream": "http://addrad.io/4WRDD8",
+		"radio": "Deutschlandfunk Nova"
+	},
+	{
+		"country": "de",
+		"url_stream": "http://addrad.io/4WRKsp",
+		"radio": "radioBERLIN"
+	}
+]

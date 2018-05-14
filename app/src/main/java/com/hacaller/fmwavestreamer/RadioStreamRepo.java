@@ -17,14 +17,18 @@ import java.util.List;
 
 public class RadioStreamRepo {
 
+    public static final int GERMAN = R.raw.german;
+    public static final int ENGLISH = R.raw.english;
+    public static final int FRENCH = R.raw.french;
+
     private Context context;
 
     public RadioStreamRepo(Context context) {
         this.context = context;
     }
 
-    public List<RadioStream> getStreamList() {
-        InputStream in = context.getResources().openRawResource(R.raw.radios);
+    public List<RadioStream> getStreamList(int language) {
+        InputStream in = context.getResources().openRawResource(language);
         BufferedReader reader = new BufferedReader(new InputStreamReader(in));
         StringBuilder builder = new StringBuilder();
         try {

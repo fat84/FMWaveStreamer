@@ -43,7 +43,7 @@
 
                 <ImageView
                     android:id="@+id/icStop"
-                    app:srcCompat="@drawable/ic_stop"
+                    app:srcCompat="@drawable/btn_stop"
                     android:layout_margin="12dp"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -56,7 +56,7 @@
 
                 <ImageView
                     android:id="@+id/icPlay"
-                    app:srcCompat="@drawable/ic_play"
+                    app:srcCompat="@drawable/btn_play"
                     android:layout_margin="12dp"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"

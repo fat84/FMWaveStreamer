@@ -1,0 +1,23 @@
+[
+	{
+		"country": "uk",
+		"url_stream": "http://media-ice.musicradio.com:80/LBCLondon",
+		"radio": "LBC"
+	},
+	{
+		"country": "uk",
+		"url_stream": "http://media-ice.musicradio.com:80/GoldMP3",
+		"radio": "Gold UK"
+	},
+	{
+		"country": "uk",
+		"url_stream": "http://media-sov.musicradio.com:80/HeartWestMidsMP3",
+		"radio": "Heart"
+	},
+	{
+		"country": "uk",
+		"url_stream": "http://live.audiospace.co:80/radioyorkshire",
+		"radio": "Yorkshire"
+	}
+
+]
